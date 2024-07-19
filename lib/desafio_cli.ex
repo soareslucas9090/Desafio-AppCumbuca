@@ -35,7 +35,7 @@ defmodule DesafioCli do
   """
   def main do
     IO.puts("###   Ferramenta de numeração de reis e rainhas de Cumbuquia   ###")
-    string1 = ~s(Insira os nomes desajados um por linha. Envie "0" para fianlizar.)
+    string1 = ~s(Insira os nomes desejados, um por linha. Envie "0" para finalizar.)
     IO.puts(string1)
     leitura_de_nomes()
   end
@@ -74,12 +74,14 @@ defmodule DesafioCli do
   end
 
   defp mostrar_nomes(lista_nomes) do
-    IO.puts("\n\n### Os governantes de Cumbúquia, por ordem de sucessão:\n")
+    unless lista_nomes == [] do
+      IO.puts("\n\n### Os governantes de Cumbúquia, por ordem de sucessão:\n")
 
-    lista_nomes
-    |> Enum.each(fn nome ->
-      IO.puts("#{nome}")
-    end)
+      lista_nomes
+      |> Enum.each(fn nome ->
+        IO.puts("#{nome}")
+      end)
+    end
   end
 
   defp numero_para_romano(num) when is_integer(num) and num > 0 and num < 4000 do
