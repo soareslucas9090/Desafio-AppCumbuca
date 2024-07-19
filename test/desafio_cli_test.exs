@@ -14,4 +14,21 @@ defmodule DesafioCliTest do
            ###   Nenhum nome enviado!   ###
            """
   end
+
+  test "Inserção em ordem" do
+    input = "Ana\nAna\nAna\nJoão\nJoão\nMaria\n0\n"
+    output = capture_io(input, fn ->
+      DesafioCli.main()
+    end)
+    assert output == """
+          ###   Ferramenta de numeração de reis e rainhas de Cumbuquia   ###
+          Insira os nomes desajados um por linha. Envie "0" para fianlizar.
+          Ana I
+          Ana II
+          Ana III
+          João I
+          João II
+          Maria I
+          """
+  end
 end
