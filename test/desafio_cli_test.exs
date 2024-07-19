@@ -13,7 +13,7 @@ defmodule DesafioCliTest do
 
     assert output == """
            ###   Ferramenta de numeração de reis e rainhas de Cumbuquia   ###
-           Insira os nomes desajados um por linha. Envie "0" para fianlizar.
+           Insira os nomes desejados, um por linha. Envie "0" para finalizar.
            ###   Nenhum nome enviado!   ###
            """
   end
@@ -28,7 +28,11 @@ defmodule DesafioCliTest do
 
     assert output == """
            ###   Ferramenta de numeração de reis e rainhas de Cumbuquia   ###
-           Insira os nomes desajados um por linha. Envie "0" para fianlizar.
+           Insira os nomes desejados, um por linha. Envie "0" para finalizar.
+
+
+           ### Os governantes de Cumbúquia, por ordem de sucessão:
+
            Ana I
            Ana II
            Ana III
@@ -52,7 +56,11 @@ defmodule DesafioCliTest do
 
     assert output == """
            ###   Ferramenta de numeração de reis e rainhas de Cumbuquia   ###
-           Insira os nomes desajados um por linha. Envie "0" para fianlizar.
+           Insira os nomes desejados, um por linha. Envie "0" para finalizar.
+
+
+           ### Os governantes de Cumbúquia, por ordem de sucessão:
+
            Maria I
            Ana I
            Ana II
@@ -77,7 +85,11 @@ defmodule DesafioCliTest do
 
     assert output == """
            ###   Ferramenta de numeração de reis e rainhas de Cumbuquia   ###
-           Insira os nomes desajados um por linha. Envie "0" para fianlizar.
+           Insira os nomes desejados, um por linha. Envie "0" para finalizar.
+
+
+           ### Os governantes de Cumbúquia, por ordem de sucessão:
+
            Eduardo I
            Maria I
            Daniel I
@@ -95,7 +107,11 @@ defmodule DesafioCliTest do
 
     assert output == """
            ###   Ferramenta de numeração de reis e rainhas de Cumbuquia   ###
-           Insira os nomes desajados um por linha. Envie "0" para fianlizar.
+           Insira os nomes desejados, um por linha. Envie "0" para finalizar.
+
+
+           ### Os governantes de Cumbúquia, por ordem de sucessão:
+
            João I
            João II
            João III
