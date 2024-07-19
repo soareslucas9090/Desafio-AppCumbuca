@@ -45,9 +45,7 @@ defmodule DesafioCli do
   defp processar_nomes(map) do
     map
     |> Enum.flat_map(fn {key, value} ->
-      for i <- 1..value do
-        {key, numero_para_romano(i)}
-      end
+      for i <- 1..value, do: {key, numero_para_romano(i)}
     end)
   end
 
@@ -61,7 +59,7 @@ defmodule DesafioCli do
       new_rem = rem - (numero * count)
       {new_acc, new_rem}
     end)
-    IO.inspect(teste)
+
     resultado
   end
 end
