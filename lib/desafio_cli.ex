@@ -35,41 +35,45 @@ defmodule DesafioCli do
     end
   end
 
-  defp contar_nomes(list) do
+  def contar_nomes(list) do
     if [] == list do
       IO.puts("###   Nenhum nome enviado!   ###")
     end
 
-    map = list
-    |> Enum.reduce(%{}, fn item, acc ->
-      Map.update(acc, item, 1, &(&1 + 1))
-    end)
+    lista_nomes =
+      list
+      |> Enum.reduce({[], %{}}, fn nome, {resultado, contagem} ->
+        nova_contagem = Map.update(contagem, nome, 1, &(&1 + 1))
+        resultado = resultado ++ ["#{nome} #{numero_para_romano(nova_contagem[nome])}"]
+        {resultado, nova_contagem}
+      end)
+      |> elem(0)
 
-    processar_nomes(map)
+    mostrar_nomes(lista_nomes)
   end
 
-  defp processar_nomes(map) do
-    lista_nomes = map
-    |> Enum.flat_map(fn {key, value} ->
-      for i <- 1..value, do: {key, numero_para_romano(i)}
-    end)
-
+  defp mostrar_nomes(lista_nomes) do
     lista_nomes
-    |> Enum.each(fn {nome, alg_romano} ->
-      IO.puts("#{nome} #{alg_romano}")
+    |> Enum.each(fn nome ->
+      IO.puts("#{nome}")
     end)
   end
 
   defp numero_para_romano(num) do
-    numeros = [1000, 900, 500, 400,100, 90, 50, 40,10, 9, 5, 4, 1]
+    numeros = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
     romanos = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
 
-    {resultado, _} = Enum.reduce(numeros, {"" , num}, fn numero, {acc, rem} ->
-      count = div(rem, numero)
-      new_acc = acc <> String.duplicate(Enum.at(romanos, Enum.find_index(numeros, &(&1 == numero))), count)
-      new_rem = rem - (numero * count)
-      {new_acc, new_rem}
-    end)
+    {resultado, _} =
+      Enum.reduce(numeros, {"", num}, fn numero, {acc, rem} ->
+        count = div(rem, numero)
+
+        new_acc =
+          acc <>
+            String.duplicate(Enum.at(romanos, Enum.find_index(numeros, &(&1 == numero))), count)
+
+        new_rem = rem - numero * count
+        {new_acc, new_rem}
+      end)
 
     resultado
   end
