@@ -1,16 +1,37 @@
 defmodule DesafioCli do
   @moduledoc """
-  Documentation for `DesafioCli`.
+    Este módulo tem como função principal contar a lista de Reis e Rainhas de Cumbúquia, e devolver
+    a mesma lista, mas numerada com o nome dos governantes com a sua devida numeração.
   """
 
   @doc """
-  Hello world.
+    A única função pública do módulo, `main/0` tem como objetivo dar boas vindas ao usuário e explicar o funcionamento da CLI.
 
-  ## Examples
+    Para o pleno funcionamento da ferramenta, deve ser fornecido os nomes dos Reis e Rainhas de Cumbúquia, um a um,
+    separados por um "Enter" ou "\n".
 
-      iex> DesafioCli.hello()
-      :world
+    Ao finalizar a inserção, envie o caracter "0" ou "0\n" para receber de volta a numeração da realeza de Cumbúquia.
 
+  ## Exemplos
+
+      In: Eduardo    Out: Eduardo I
+          Maria           Maria I
+          Daniel          Daniel I
+          Eduardo         Eduardo II
+
+  ```
+    João
+    Maria
+    Daniel
+    João
+    0
+
+    ### Os governantes de Cumbúquia, por ordem de sucessão:
+    João I
+    Maria I
+    Daniel I
+    João II
+  ```
   """
   def main do
     IO.puts("###   Ferramenta de numeração de reis e rainhas de Cumbuquia   ###")
@@ -53,6 +74,8 @@ defmodule DesafioCli do
   end
 
   defp mostrar_nomes(lista_nomes) do
+    IO.puts("\n\n### Os governantes de Cumbúquia, por ordem de sucessão:\n")
+
     lista_nomes
     |> Enum.each(fn nome ->
       IO.puts("#{nome}")
