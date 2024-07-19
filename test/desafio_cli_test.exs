@@ -16,7 +16,7 @@ defmodule DesafioCliTest do
   end
 
   test "Inserção em ordem" do
-    input = "Ana\nAna\nAna\nJoão\nJoão\nMaria\n0\n"
+    input = "Ana\nAna\nAna\nAna\nAna\nAna\nJoão\nJoão\nMaria\nMaria\n0\n"
     output = capture_io(input, fn ->
       DesafioCli.main()
     end)
@@ -26,26 +26,35 @@ defmodule DesafioCliTest do
           Ana I
           Ana II
           Ana III
+          Ana IV
+          Ana V
+          Ana VI
           João I
           João II
           Maria I
+          Maria II
           """
   end
 
   test "Inserção fora de ordem" do
-    input = "Maria\nAna\nAna\nJoão\nAna\nJoão\n0\n"
+    input = "Maria\nAna\nAna\nJoão\nAna\nJoão\nMaria\nAna\nAna\nJoão\nAna\n0\n"
     output = capture_io(input, fn ->
       DesafioCli.main()
     end)
     assert output == """
           ###   Ferramenta de numeração de reis e rainhas de Cumbuquia   ###
           Insira os nomes desajados um por linha. Envie "0" para fianlizar.
+          Maria I
           Ana I
           Ana II
-          Ana III
           João I
+          Ana III
           João II
-          Maria I
+          Maria II
+          Ana IV
+          Ana V
+          João III
+          Ana VI
           """
   end
 end
