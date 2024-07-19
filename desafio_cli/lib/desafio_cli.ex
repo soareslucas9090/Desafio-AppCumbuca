@@ -43,13 +43,25 @@ defmodule DesafioCli do
   end
 
   defp processar_nomes(map) do
-    flat_map = map
+    map
     |> Enum.flat_map(fn {key, value} ->
       for i <- 1..value do
-        {key, i}
+        {key, numero_para_romano(i)}
       end
     end)
-    flat_map
   end
 
+  defp numero_para_romano(num) do
+    numeros = [1000, 900, 500, 400,100, 90, 50, 40,10, 9, 5, 4, 1]
+    romanos = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
+
+    {resultado, _} = Enum.reduce(numeros, {"" , num}, fn numero, {acc, rem} ->
+      count = div(rem, numero)
+      new_acc = acc <> String.duplicate(Enum.at(romanos, Enum.find_index(numeros, &(&1 == numero))), count)
+      new_rem = rem - (numero * count)
+      {new_acc, new_rem}
+    end)
+    IO.inspect(teste)
+    resultado
+  end
 end
