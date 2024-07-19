@@ -34,13 +34,22 @@ defmodule DesafioCli do
       IO.puts("###   Nenhum nome enviado!   ###")
     end
 
-   list
+    map = list
     |> Enum.reduce(%{}, fn item, acc ->
       Map.update(acc, item, 1, &(&1 + 1))
     end)
 
-
+    processar_nomes(map)
   end
 
+  defp processar_nomes(map) do
+    flat_map = map
+    |> Enum.flat_map(fn {key, value} ->
+      for i <- 1..value do
+        {key, i}
+      end
+    end)
+    flat_map
+  end
 
 end
