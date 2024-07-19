@@ -20,12 +20,18 @@ defmodule DesafioCli do
   end
 
   defp leitura_de_nomes(acc \\ []) do
-    input = IO.gets("") |> String.trim()
+    input = IO.gets("")
 
-    if input == "0" do
-      contar_nomes(acc)
-    else
-      leitura_de_nomes(acc ++ [input])
+    case input do
+      "0\n" ->
+        contar_nomes(acc)
+
+      :eof ->
+        contar_nomes(acc)
+
+      _ ->
+        input = String.trim(input)
+        leitura_de_nomes(acc ++ [input])
     end
   end
 
