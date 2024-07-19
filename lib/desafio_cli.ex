@@ -59,7 +59,7 @@ defmodule DesafioCli do
     end)
   end
 
-  defp numero_para_romano(num) do
+  defp numero_para_romano(num) when is_integer(num) and num > 0 and num < 4000 do
     numeros = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
     romanos = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
 
