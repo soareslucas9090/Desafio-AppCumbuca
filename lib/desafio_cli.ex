@@ -47,6 +47,7 @@ defmodule DesafioCli do
       "0\n" ->
         contar_nomes(acc)
 
+      # Condição criada para previnir erros nos testes
       :eof ->
         contar_nomes(acc)
 
