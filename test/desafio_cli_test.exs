@@ -57,4 +57,34 @@ defmodule DesafioCliTest do
           Ana VI
           """
   end
+
+  test "Inserção original 1 do Desafio - Eng. Suporte" do
+    input = "Eduardo\nMaria\nDaniel\nEduardo\n0\n"
+    output = capture_io(input, fn ->
+      DesafioCli.main()
+    end)
+    assert output == """
+          ###   Ferramenta de numeração de reis e rainhas de Cumbuquia   ###
+          Insira os nomes desajados um por linha. Envie "0" para fianlizar.
+          Eduardo I
+          Maria I
+          Daniel I
+          Eduardo II
+          """
+  end
+
+  test "Inserção original 2 do Desafio - Eng. Suporte" do
+    input = "João\nJoão\nJoão\nJoão\n0\n"
+    output = capture_io(input, fn ->
+      DesafioCli.main()
+    end)
+    assert output == """
+          ###   Ferramenta de numeração de reis e rainhas de Cumbuquia   ###
+          Insira os nomes desajados um por linha. Envie "0" para fianlizar.
+          João I
+          João II
+          João III
+          João IV
+          """
+  end
 end
