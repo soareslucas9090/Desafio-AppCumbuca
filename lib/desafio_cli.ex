@@ -49,9 +49,14 @@ defmodule DesafioCli do
   end
 
   defp processar_nomes(map) do
-    map
+    lista_nomes = map
     |> Enum.flat_map(fn {key, value} ->
       for i <- 1..value, do: {key, numero_para_romano(i)}
+    end)
+
+    lista_nomes
+    |> Enum.each(fn {nome, alg_romano} ->
+      IO.puts("#{nome} #{alg_romano}")
     end)
   end
 
