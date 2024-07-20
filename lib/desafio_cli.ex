@@ -57,7 +57,7 @@ defmodule DesafioCli do
     end
   end
 
-  def contar_nomes(list) do
+  defp contar_nomes(list) do
     if [] == list do
       IO.puts("###   Nenhum nome enviado!   ###")
     end
