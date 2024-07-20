@@ -32,15 +32,33 @@ João II
 ### Como Executar
 
 1.  Clone o repositório:
-    `git clone github.com/soareslucas9090/Desafio-AppCumbuca
-    cd Desafio-AppCumbuca` 
+
+   	`git clone github.com/soareslucas9090/Desafio-AppCumbuca
+    	cd Desafio-AppCumbuca` 
     
-2.  Compile o projeto:
-	Com o Elixir instalado: `iex -S mix` 
+2.  Compile o projeto (com o Elixir instalado):
+
+   	`iex -S mix` 
     
-3.  Execute a ferramenta: 
-`DesafioCli.main` 
+4.  Execute a ferramenta: 
+	
+ 	`DesafioCli.main`
+
+### Gerar Documentação
+
+1.  Faça um deps.get:
+
+	`mix deps.get`
     
+2.  Compile as dependências:
+
+   	`mix deps.compile`
+    
+3.  Gere os documentos de documentação:
+
+   	`mix docs`
+
+A documentação será gerada no diretório raiz/doc.
 
 ### Testes
 
